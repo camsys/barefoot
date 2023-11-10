@@ -7,6 +7,18 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	<distributionManagement>
+		<repository>
+			<id>releases-camsys-public-repo</id>
+			<name>Camsys Public Release Repo</name>
+			<url>s3://repo.camsys-apps.com/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots-camsys-public-repo</id>
+			<name>Camsys Public Snapshot Repo</name>
+			<url>s3://repo.camsys-apps.com/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>
@@ -122,6 +134,13 @@
 				</excludes>
 			</testResource>
 		</testResources>
+		<extensions>
+			<extension>
+				<groupId>com.github.ottogroupsolutionprovider</groupId>
+				<artifactId>aws-maven</artifactId>
+				<version>6.0.1</version>
+			</extension>
+		</extensions>
 	</build>
 	<dependencies>
 		<dependency>
