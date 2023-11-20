@@ -205,7 +205,7 @@ public abstract class Filter<C extends StateCandidate<C, T, S>, T extends StateT
         }
 
         if (!candidates.isEmpty() && result.isEmpty() && !predecessors.isEmpty()) {
-            logger.info("HMM break - no state transitions");
+            logger.debug("HMM break - no state transitions");
         }
 
         if (result.isEmpty() || predecessors.isEmpty()) {
@@ -232,7 +232,7 @@ public abstract class Filter<C extends StateCandidate<C, T, S>, T extends StateT
         }
 
         if (result.isEmpty()) {
-            logger.info("HMM break - no state emissions");
+            logger.debug("HMM break - no state emissions");
         }
 
         for (C candidate : result) {

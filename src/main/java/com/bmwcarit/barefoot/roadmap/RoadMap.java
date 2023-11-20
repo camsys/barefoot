@@ -131,7 +131,7 @@ public class RoadMap extends Graph<Road> implements Serializable {
             reader.open();
         }
 
-        logger.info("inserting roads ...");
+        logger.debug("inserting roads ...");
 
         RoadMap roadmap = new RoadMap();
 
@@ -150,13 +150,13 @@ public class RoadMap extends Graph<Road> implements Serializable {
             }
         }
 
-        logger.info("inserted {} ({}) roads and finished", osmcounter, counter);
+        logger.debug("inserted {} ({}) roads and finished", osmcounter, counter);
 
         reader.close();
 
         System.gc();
         memory = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - memory;
-        logger.info("~{} megabytes used for road data (estimate)",
+        logger.debug("~{} megabytes used for road data (estimate)",
                 Math.max(0, Math.round(memory / 1E6)));
 
         return roadmap;
@@ -172,7 +172,7 @@ public class RoadMap extends Graph<Road> implements Serializable {
         System.gc();
         memory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
 
-        logger.info("index and topology constructing ...");
+        logger.debug("index and topology constructing ...");
 
         super.construct();
 
@@ -181,11 +181,11 @@ public class RoadMap extends Graph<Road> implements Serializable {
             index.put(road);
         }
 
-        logger.info("index and topology constructed");
+        logger.debug("index and topology constructed");
 
         System.gc();
         memory = (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()) - memory;
-        logger.info("~{} megabytes used for spatial index (estimate)",
+        logger.debug("~{} megabytes used for spatial index (estimate)",
                 Math.max(0, Math.round(memory / 1E6)));
 
         return this;
